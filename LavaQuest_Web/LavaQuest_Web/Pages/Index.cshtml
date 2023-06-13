@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<script>
+    function openLink() {
+        window.open('https://atos.net/en/', '_blank');
+    }
+    function openLink2() {
+        window.open('https://atos.net/en/', '_blank');
+    }
+</script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row indexDivBoxes">
+                <h2 class="text-white text-center">Aplicar Examen</h2>
+                <button class="btn indexButton1" onclick="location.href = '/UsarExistente';">Usar Existente</button>
+                <button class="btn indexButton1" onclick="location.href = '/NomExamen';">Crear Nuevo</button>
+            </div>
+            <div class="row indexDivBoxes">
+                <h2 class="text-white text-center">Información</h2>
+                <button class="btn indexButton1">Descarga el Juego</button>
+                <button class="btn indexButton1" onclick="openLink()">Conoce a ATOS</button>
+            </div>
+        </div>
+        <div class="col-md-8 ms-auto">
+            <div class="row indexDivBoxes2">
+                <div style="margin-bottom:2%;"><h2 class="text-white">Exámenes anteriores</h2></div>
+                <form method="post" asp-page-handler="Click">
+                    <div id="scrollable-content">
+                        @foreach (var item in Model.listaExamen)
+                        {
+                                <button type="submit" value="@item.idExamen" name="botonid" href="/Resultados?botonid=@item.idExamen" style="margin-bottom: 12px;" class="indexButton2">@Html.DisplayFor(modelItem => item.Nombre)</button>
+                            <br />
+                        }
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

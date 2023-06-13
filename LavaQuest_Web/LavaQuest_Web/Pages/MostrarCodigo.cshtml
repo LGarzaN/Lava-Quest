@@ -1,0 +1,37 @@
+﻿@page
+@model LavaQuest_Web.Pages.MostrarCodigoModel
+@{
+    Layout = null; // Establecer el diseño como nulo para ocultarlo en esta página
+    ViewData["Title"] = "Codigo Examen";
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LavaQuest_Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LavaQuest_Web.styles.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<script>
+    function regresar() {
+        // Redirigir al usuario a la página de inicio
+        window.location.href = 'UsarExistente';
+    }
+</script>
+
+<!--
+El div con la clase RegistroContenedor contiene el form que registra a un nuevo usuario y lo envia al backend para ser procesado
+-->
+<div class="MCContenedor">
+    <h2>Utiliza este código para aplicar el examen:</h2>
+    <br />
+    <h1>@Model.Codigo</h1>
+    <br />
+    <button onclick="regresar()" class="btn RegistroEspacioBtn text-white" style="background-color: #D58936;">
+       Regresar
+    </button>
+</div>

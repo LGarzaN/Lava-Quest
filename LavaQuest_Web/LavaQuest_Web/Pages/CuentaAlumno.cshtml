@@ -1,0 +1,22 @@
+﻿@page
+@model LavaQuest_Web.Pages.CuentaAlumnoModel
+@{
+    Layout = null; // Establecer el diseño como nulo para ocultarlo en esta página
+    ViewData["Title"] = "Pagina Alumno";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LavaQuest_Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LavaQuest_Web.styles.css" asp-append-version="true" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<div class="CuentaAlumnoContenedor">
+    <img src="/img/logo.png" style="height: 180px; width: auto;" />
+    <p>Estas registrado como alumno</p>
+    <p>Te esperamos en el videojuego</p>
+</div>

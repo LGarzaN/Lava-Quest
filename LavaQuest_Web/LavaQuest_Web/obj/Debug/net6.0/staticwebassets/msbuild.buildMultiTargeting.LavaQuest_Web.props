@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LavaQuest_Web.props" />
+</Project>

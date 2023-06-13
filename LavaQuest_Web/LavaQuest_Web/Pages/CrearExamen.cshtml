@@ -1,0 +1,88 @@
+﻿@page
+@model LavaQuest_Web.Pages.CrearExamenModel
+@{
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var input = document.getElementById("Pregunta");
+        input.select();
+    });
+</script>
+
+
+<div class="container">
+    
+        <div class="row">
+            <div class="col-2 crearExamenDivBoxes">
+                <h3 style="align-self:center">Preguntas</h3>
+
+                <div id="">
+                    <form method="post" asp-page-handler="Examen">
+                        @foreach (var item in Model.listaPreguntas)
+                        {
+                            <button name ="idBoton" style="margin-bottom: 12px;" class="crearExamenButton1" value="@item.idPregunta">@Html.DisplayFor(modelItem => item.pregunta)</button>
+                        }
+
+                    <button name="idBoton" value="0" class="indexButton2" style="text-align:center;">Nueva Pregunta</button>
+                    </form>
+
+
+                    
+               
+                </div>
+
+            </div>
+
+            <div class="col-9 ms-auto crearExamenDivBoxes">
+                    <div id="CrearPregunta" class="center">
+                        <form method="post" asp-page-handler="PreguntaSub">
+                        <center><h4>Pregunta</h4></center>
+                        <center><input asp-for="Pregunta" type="text" placeholder="Máx. 100 caracteres" id="Pregunta" required class="crearExamenInputPregunta" maxlength="45" /></center>
+                        <br />
+                        <br />
+                        <div style="align-content:center;">
+                    
+                            <label>
+                            a <input name="correcta" value="1" type="checkbox" class="radio checkbox-round mx-auto" checked/>  <input asp-for="Respuesta1"  type="text" class="crearExamenInputRespuesta" required placeholder="Máx. 45 caracteres" maxlength="45" />
+                            <br /> 
+                            <br />
+                                
+                            </label>
+                            <br />
+                            
+                            <label>
+                            b <input name="correcta" value="2" type="checkbox" class="radio checkbox-round" />  <input asp-for="Respuesta2"  type="text" class="crearExamenInputRespuesta" required placeholder="Máx. 45 caracteres" maxlength="45" />
+                            <br />
+                            <br />
+                                
+                            </label>
+                             <br />
+                            
+                            <label>
+                            c <input name="correcta" value="3" type="checkbox" class="radio checkbox-round" />  <input asp-for="Respuesta3"  type="text" class="crearExamenInputRespuesta" required placeholder="Máx. 45 caracteres" maxlength="45" />
+                            <br />
+                            <br />
+                                
+                            </label>
+                       
+                            <br />
+                            <label>
+                            d <input name="correcta" value="4" type="checkbox" class="radio checkbox-round" />  <input asp-for="Respuesta4"  type="text" class="crearExamenInputRespuesta" required placeholder="Máx. 45 caracteres" maxlength="45" />
+                            <br />
+                            <br />
+                            <br />
+                                
+                            </label>
+
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                        <button type="submit" class="btn RegistroEspacioBtn text-white" style="background-color: #D58936; margin-bottom: 15px; height: 55px; width:120px; padding:3px;">Guardar</button>
+                </form>
+                <form method="post" asp-page-handler="Eliminar"><button class="btn btn-danger RegistroEspacioBtn" style="margin-left: 350px; height: 55px; ">Eliminar</button></form>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+</div>

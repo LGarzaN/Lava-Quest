@@ -1,0 +1,27 @@
+﻿@page
+@model LavaQuest_Web.Pages.UsarExistenteModel
+@{
+    ViewData["Title"] = "Aplicar Examen";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 ms-auto center">
+            <div class="row indexDivBoxes2">
+                <div><h2 class="text-white">Elegir Examen</h2></div>
+                <form method="post" asp-page-handler="Click">
+                    <div id="scrollable-content">
+                        <table>
+                            @foreach (var item in Model.listaExamen)
+                            {
+                                <button type="submit" value="@item.idExamen" name="botonid" href="/Resultados?botonid=@item.idExamen" style="margin-bottom: 12px;" class="indexButton2">@Html.DisplayFor(modelItem => item.Nombre)</button>
+                                <br />
+                            }
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

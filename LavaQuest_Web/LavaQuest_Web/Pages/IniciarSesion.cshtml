@@ -1,0 +1,111 @@
+﻿@page
+@model LavaQuest_Web.Pages.IniciarSesionModel
+@{
+    Layout = null; // Establecer el diseño como nulo para ocultarlo en esta página
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LavaQuest_Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LavaQuest_Web.styles.css" asp-append-version="true" />
+</head>
+
+
+<script>
+    function mostrarOcultarContrasena(idInput, idIcono) {
+        var input = document.getElementById(idInput);
+        var iconoOjo = document.getElementById(idIcono);
+
+        if (input.type === "password") {
+            input.type = "text";
+            iconoOjo.src = "/img/ojoAbierto.png";
+        } else {
+            input.type = "password";
+            iconoOjo.src = "/img/ojo-cerrado.png";
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var contrasenaInput = document.getElementById('email');
+        var contrasenaButton = document.getElementById('MostrarContrasena');
+        var contrasenaImage = document.getElementById('IconoOjo');
+
+        var confirmarContrasenaButton = document.getElementById('MostrarConfirmarContrasena');
+        var confirmarContrasenaImage = document.getElementById('IconoOjoConfirmar');
+
+        var inputHeight = getComputedStyle(contrasenaInput).height;
+
+        contrasenaButton.style.height = inputHeight;
+        contrasenaImage.style.height = inputHeight;
+
+        confirmarContrasenaButton.style.height = inputHeight;
+        confirmarContrasenaImage.style.height = inputHeight;
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var input = document.getElementById("email");
+        input.select();
+    });
+</script>
+
+<div class="row LoginMargenDerecho">
+    <div class="col-md-6">
+        <div class="img LoginCentraImagen">
+            <img src="/img/logo.png" width="500" />
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <center>
+            <div class="row LoginDivBoxes">
+
+                <img src="/img/UserLogo.png" style="height: 180px; width: auto;" />
+
+                <h2 class="text-white">Bienvenido</h2>
+
+                <form method="post">
+                    <div class="d-flex justify-content-center LoginEspaciado">
+                        <input asp-for="Correo" type="email" class="form-control px-7" id="email" style="width: 75%;" value="@TempData["CorreoValue"]?.ToString()" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="LoginJustificado">
+                        @if (!string.IsNullOrEmpty(ViewData["CorreoIncorrecto"] as string))
+                        {
+                            <span class="text-danger LoginMensajeError">@ViewData["CorreoIncorrecto"]</span>
+                        }
+                    </div>
+
+                    <div class="d-flex justify-content-center LoginEspaciado">
+                        <input asp-for="Contrasena" type="password" id="Contrasena" class="form-control px-3" style="width: 75%;" placeholder="Contraseña" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{4,8}$" value="@TempData["ContrasenaValue"]?.ToString()" maxlength="8" required>
+
+                        <div class="input-group-append">
+                            <div class="loginver">
+                                <button type="button" id="MostrarContrasena" class="btn" onclick="mostrarOcultarContrasena('Contrasena', 'IconoOjo')">
+                                    <img id="IconoOjo" src="/img/ojo-cerrado.png" alt="Mostrar Contraseña" class="LoginImgBtn">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="LoginJustificado">
+                        @if (!string.IsNullOrEmpty(ViewData["ContrasenaIncorracta"] as string))
+                        {
+                            <span class="text-danger LoginMensajeError">@ViewData["ContrasenaIncorracta"]</span>
+                        }
+                    </div>
+
+
+                    <div class="" style="width:auto;">
+                        <a style="font-size:16px;" class="IniciarSesionHover text-white" asp-area="" asp-page="/Registro"><u>¿No tienes cuenta? Regístrate</u></a>
+                    </div>
+
+                    <button type="submit" class="btn LoginEspacioBtn" style="background-color: #D58936; color: white;">Iniciar sesión</button>
+                </form>
+            </div>
+        </center>
+
+    </div>
+</div>

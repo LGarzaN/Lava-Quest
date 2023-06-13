@@ -1,0 +1,24 @@
+﻿@page
+@model LavaQuest_Web.Pages.NomExamenModel
+@{
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var input = document.getElementById("NomExamen");
+        input.select();
+    });
+</script>
+
+
+
+<div class="ResultadosContenedor" style="margin: auto; width: 70%;">
+    <h2>Nombre del examen</h2>
+
+    <div class="center">
+        <form method="post">
+            <input asp-for="Nombre" type="text" class="crearExamenInputPregunta" id="NomExamen" placeholder="Máx. 45 caracteres" maxlength="45" required/>
+            <button type="submit" class="btn " style="height: 45px; border-radius: 10px; background-color:#D58936;">Crear Examen</button>
+        </form>
+    </div>
+</div>

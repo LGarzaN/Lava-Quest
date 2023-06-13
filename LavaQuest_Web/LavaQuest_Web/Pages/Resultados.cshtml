@@ -1,0 +1,14 @@
+﻿@page
+@model LavaQuest_Web.Pages.ResultadosModel
+@{
+}
+
+<div class="ResultadosContenedor" style="margin: auto; width: 70%;">
+    <div><h4>Resultados</h4></div>
+    @foreach (var item in Model.listaResultados)
+    {
+        <button style="margin-bottom: 12px; padding-left: 12px; padding-right: 12px;" class="indexButton2" value="@item.idUsuario"> <div style="float:left">@Html.DisplayFor(modelItem => item.Nombre)</div>  <div style="float:right">@Html.DisplayFor(modelItem => item.Puntaje)</div></button>
+    }
+
+</div>
+
