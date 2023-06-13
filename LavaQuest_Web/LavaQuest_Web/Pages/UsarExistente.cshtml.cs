@@ -24,12 +24,12 @@ namespace LavaQuest_Web.Pages
 
             listaExamen = new List<Examen>();
 
+            //string de conexión a la base de datos
             string cs = @"server=localhost;userid=root;password=Madrid99.;database=lavaquestbd; Allow User Variables = True;";
 
             //abriendo conexion a la BD
             MySqlConnection conexion = new MySqlConnection(cs);
             conexion.Open();
-
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conexion;
 
@@ -44,7 +44,7 @@ namespace LavaQuest_Web.Pages
                 listaExamen = new List<Examen>();
 
                 // Leer cada columna de la tabla y agregar el objeto a la lista
-                // Esta lista se usara para desplegar las preguntas existentes en la pagina
+                // Esta lista se usara para desplegar los examenes existentes en la página
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -60,6 +60,7 @@ namespace LavaQuest_Web.Pages
             }
         }
 
+        //Al dar click en un examen, se redirige a la página de mostrar código
         public IActionResult OnPostClick(string botonid)
         {
             TempData["ID"] = botonid;

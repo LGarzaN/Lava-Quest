@@ -13,6 +13,7 @@ namespace LavaQuest_Web.Pages
 
         public void OnGet()
         {
+            //verificar que exista una sesión
             string nombreUsuario = HttpContext.Session.GetString("SNombre");
 
             if (nombreUsuario == null)
@@ -22,15 +23,16 @@ namespace LavaQuest_Web.Pages
 
             string id = (string)TempData["id"];
 
+            //String de conexión a la base de datos
             string cs = @"server=localhost;userid=root;password=Madrid99.;database=lavaquestbd; Allow User Variables = True;";
 
             //abriendo conexion a la BD
             MySqlConnection conexion = new MySqlConnection(cs);
             conexion.Open();
-
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conexion;
 
+            //Buscar el código del examen que se desea aplicar
             cmd.CommandText = "Select Codigo from examen where idExamen = " + id;
 
             using (MySqlDataReader reader = cmd.ExecuteReader())

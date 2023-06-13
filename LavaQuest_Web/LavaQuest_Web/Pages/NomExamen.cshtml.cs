@@ -16,6 +16,14 @@ namespace LavaQuest_Web.Pages
 
         public void OnGet()
         {
+            string nombreUsuario = HttpContext.Session.GetString("SNombre");
+
+            //Si no existe una sesión, redirigir a la pagina de iniciar sesión
+            if (nombreUsuario == null)
+            {
+                Response.Redirect("IniciarSesion");
+            }
+
         }
 
         public IActionResult OnPost()
@@ -73,8 +81,10 @@ namespace LavaQuest_Web.Pages
 
         }
 
+        // Funcion encargada de generar un codigo aleatorio para el examen 
         private string GenerarCodigoAleatorio()
         {
+            // String con todas las letras mayusculas del abecedario y los números del 1-9
             const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             Random random = new Random();
             string codigo = new string(
@@ -84,6 +94,8 @@ namespace LavaQuest_Web.Pages
             return codigo;
         }
 
+
+        // Funcion encargada de validar en la base de datos si el codigo generado por la funcion GenerarCodigoAleatorio es unico y en caso de no serlo mnada a generar otro 
         private bool ExisteCodigoEnBD(string codigo, MySqlCommand cmnd)
         {
             cmnd.CommandText = "SELECT COUNT(*) FROM examen WHERE Codigo = @Codigo";

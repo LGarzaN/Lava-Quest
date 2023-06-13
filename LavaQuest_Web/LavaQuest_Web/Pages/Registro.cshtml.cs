@@ -102,6 +102,7 @@ namespace LavaQuest_Web.Pages
                     using var cmnd = new MySqlCommand();
                     cmnd.Connection = con;
 
+                    //Guardar el nombre del usuario como variable de sesión
                     cmnd.CommandText = "select idUsuarios from usuarios where Correo = @Correo";
                     cmnd.Parameters.AddWithValue("@Correo", Correo);
                     cmnd.ExecuteNonQuery();
@@ -118,6 +119,7 @@ namespace LavaQuest_Web.Pages
 
                     HttpContext.Session.SetString("idUsuario", idUsuario);
 
+                    //Checar si el usuario es alumno o maestro
                     if (TipoUsuario == 1) return RedirectToPage("CuentaAlumno");
                     else { return RedirectToPage("Index"); }
 

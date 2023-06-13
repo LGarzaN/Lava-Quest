@@ -92,12 +92,13 @@ namespace LavaQuest_Web.Pages
             //Guardar valor de idUsuario como variable de sesion
             con.Close();
 
+            //Abriendo conexión a la base de datos
             using var conect = new MySqlConnection(cs);
             conect.Open();
-
             using var cmnd = new MySqlCommand();
             cmnd.Connection = conect;
 
+            //Query para guardar el nombre de usuario como variable de sesión
             cmnd.CommandText = "select idUsuarios from usuarios where Correo = @Correo";
             cmnd.Parameters.AddWithValue("@Correo", Correo);
             cmnd.ExecuteNonQuery();

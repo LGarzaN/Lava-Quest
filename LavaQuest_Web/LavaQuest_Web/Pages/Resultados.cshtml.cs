@@ -31,6 +31,7 @@ namespace LavaQuest_Web.Pages
             string id = (string)TempData["id"];
             listaResultados = new List<Resultado>();
 
+            //String de conexión a la base de datos
             string cs = @"server=localhost;userid=root;password=Madrid99.;database=lavaquestbd; Allow User Variables = True;";
 
             //abriendo conexion a la BD

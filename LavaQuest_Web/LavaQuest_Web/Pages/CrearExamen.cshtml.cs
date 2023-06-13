@@ -46,6 +46,15 @@ namespace LavaQuest_Web.Pages
         public void OnGet()
         {
             listaPreguntas = new List<Pregunta>();
+
+            string nombreUsuario = HttpContext.Session.GetString("SNombre");
+
+            //Si no existe una sesión, redirigir a la pagina de iniciar sesión
+            if (nombreUsuario == null)
+            {
+                Response.Redirect("IniciarSesion");
+            }
+
         }
 
         public void OnPostPreguntaSub()

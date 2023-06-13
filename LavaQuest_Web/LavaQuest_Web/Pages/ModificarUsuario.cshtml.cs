@@ -62,14 +62,17 @@ namespace LavaQuest_Web.Pages
                 // Elimina el ModelState de error
                 ModelState.Remove("ConfirmarContrasena");
 
+                //String de conexión a la base de datos
                 string cs = @"server=localhost;userid=root;password=Madrid99.;database=lavaquestbd; Allow User Variables = True;";
 
+                //Abriendo conexión
                 using var con = new MySqlConnection(cs);
                 con.Open();
 
                 using var cmdModificar = new MySqlCommand();
                 cmdModificar.Connection = con;
 
+                //Query para modificar el usuario
                 cmdModificar.CommandText = "UPDATE usuarios SET Nombre = @Nombre, Contrasena = @Contrasena WHERE Correo = @Correo";
                 cmdModificar.Parameters.AddWithValue("@Nombre", Nombre);
                 cmdModificar.Parameters.AddWithValue("@Correo", correoUsuario);
