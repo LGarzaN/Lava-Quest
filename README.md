@@ -25,7 +25,7 @@
 
 **UsarExistente**: Al dar click en el botón de "Usar Existente" en la página principal, el usuario será redirigido a esta página, en la cual podrá seleccionar el examen que quiera aplicar.
 
-##Unity
+## Unity
 
 **BarraProgreso**: Administra la barra de progreso que se muestra en la escena "InGame" que cambia dependiendo de la cantidad de  preguntas.
 
@@ -33,15 +33,15 @@
 
 **GameManager**: guarda todos los valores usados durante el juego.
 
-**LavaQuestAPIController**: 
+**LavaQuestAPIController**: Realiza la conexión con la API REST que, a su vez está conectada con la base de datos. De esta manera se verificaran los datos de ingreso del alumno, se obtendrán las preguntas y respuestas del exámen a responder y se enviarán los resultados del exámen una vez contestado. 
 
 **LoginStarter**: Deshabilita las alertas de error de usuario y contraseña.
 
-**ManejadorPreguntas**: 
+**ManejadorPreguntas**: Asigna un índice a cada piedra sobre la que el jugador se puede parar. Luego escoge uno de estos índices de manera aleatoria para marcarla como la piedra correcta y ubica el texto de dicha respuesta sobre esta. Luego escoge tres índices para designarlos como respuestas incorrectas y les coloca encima el texto correspondiente. 
 
-**ManejadorRespuestas**: 
+**ManejadorRespuestas**: Verifica constantemente con qué esta colisionando el jugador para reconocer si esta parado sobre una roca correcta o incorrecta, cuando recoge un corazón y cuando toca la lava. 
 
-**MovimientoJugador**: Habilita que el jugador se pueda mover. 
+**MovimientoJugador**: Habilita que el jugador se pueda mover en base a las teclas presionadas W(arriba) A(izquierda) S(abajo) D(derecha). 
 
 **MusinInGame**: Habilita que la musica no se reinicie cada vez que se cambie de pregunda dentro del cuestrionario.
 
@@ -49,7 +49,7 @@
 
 **PlayerState**: Guarda y administra el estado del jugador dependiendo de la cantidad de veces que se ha quemado.
 
-**Resultado**: 
+**Resultado**: Es una clase con la misma estructura de la tabla resultado de la base de datos. Con esta se crea un objeto con el puntaje y datos del alumno y exámen y se envía a la base de datos por medio de la API 
 
 **SceneChange**: Permite que al asignarse a un boton, se pueda cambiar de escena a la escena asignada. 
 
@@ -57,5 +57,5 @@
 
 **Temporizador**: Desactiva y activa los textos de resultado de "Quemado" y "Correcto" Contiene un contador que al finalizarse, limita el movimiento del jugador, desactiva las piedras, suma puntos en caso de que la respuesta sea correcta y agrega muertes en caso de que sea incorrecta.
 
-**Tiempo**: 
+**Tiempo**: Controlador del temporizador mostrado en la interfaz gráfica para que el alumno pueda visualizar cuanto tiempo tiene hasta que las piedras desaparezcan. 
 
