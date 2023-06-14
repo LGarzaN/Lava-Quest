@@ -24,3 +24,38 @@
 **Resultados**: Después de seleccionar un examen en la página principal, el usuario será redirigido a esta página, en la cual el maestro podrá ver los resultados del examen seleccionado.
 
 **UsarExistente**: Al dar click en el botón de "Usar Existente" en la página principal, el usuario será redirigido a esta página, en la cual podrá seleccionar el examen que quiera aplicar.
+
+##Unity
+
+**BarraProgreso**: Administra la barra de progreso que se muestra en la escena "InGame" que cambia dependiendo de la cantidad de  preguntas.
+
+**CodeError**: Deshabilita las alertas de error de codigo de examen.
+
+**GameManager**: guarda todos los valores usados durante el juego.
+
+**LavaQuestAPIController**: 
+
+**LoginStarter**: Deshabilita las alertas de error de usuario y contraseña.
+
+**ManejadorPreguntas**: 
+
+**ManejadorRespuestas**: 
+
+**MovimientoJugador**: Habilita que el jugador se pueda mover. 
+
+**MusinInGame**: Habilita que la musica no se reinicie cada vez que se cambie de pregunda dentro del cuestrionario.
+
+**MusicPass**: Permite que la musica no se corte mientras que el usuario se encuentra en el menu principal.
+
+**PlayerState**: Guarda y administra el estado del jugador dependiendo de la cantidad de veces que se ha quemado.
+
+**Resultado**: 
+
+**SceneChange**: Permite que al asignarse a un boton, se pueda
+
+**ScoreManager**: 
+
+**Temporizador**: 
+
+**Tiempo**: 
+
