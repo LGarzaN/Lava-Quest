@@ -51,11 +51,11 @@
 
 **Resultado**: 
 
-**SceneChange**: Permite que al asignarse a un boton, se pueda
+**SceneChange**: Permite que al asignarse a un boton, se pueda cambiar de escena a la escena asignada. 
 
-**ScoreManager**: 
+**ScoreManager**: Al finalizar el juego, permite que se vea como el puntaje se incremente de cero a el puntaje final. 
 
-**Temporizador**: 
+**Temporizador**: Desactiva y activa los textos de resultado de "Quemado" y "Correcto" Contiene un contador que al finalizarse, limita el movimiento del jugador, desactiva las piedras, suma puntos en caso de que la respuesta sea correcta y agrega muertes en caso de que sea incorrecta.
 
 **Tiempo**: 
 
